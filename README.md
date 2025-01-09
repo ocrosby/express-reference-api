@@ -36,6 +36,8 @@ The application will be available at [http://localhost:3000](http://localhost:30
 - `npm run lint`: Run ESLint to check for linting errors.
 - `npm test`: Run tests (if any).
 
+When you start the service the [Swagger documentation](http://localhost:3000/api-docs) can be accessed at http://localhost:3000/api-docs.
+
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request.
