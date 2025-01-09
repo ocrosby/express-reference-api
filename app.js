@@ -15,11 +15,6 @@ const kubernetesRouter = require('./routes/kubernetes');
 const app = express();
 
 // Swagger setup
-const swaggerOptions = {
-    swaggerDefinition: require('./swagger.json'),
-    apis: ['./routes/*.js'], // Path to the API docs
-};
-const swaggerDocs = swaggerJsdoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 // view engine setup
