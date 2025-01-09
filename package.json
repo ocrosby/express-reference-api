@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/ocrosby/express-reference-api/issues"
   },
-  "homepage": "https://github.com/ocrosby/express-reference-api#readme"
+  "homepage": "https://github.com/ocrosby/express-reference-api#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
 }
