@@ -4,7 +4,8 @@
   "description": "something",
   "main": "index.js",
   "scripts": {
-    "test": "true"
+    "test": "true",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,10 @@
   },
   "homepage": "https://github.com/ocrosby/express-reference-api#readme",
   "dependencies": {
-    "express": "^4.21.2"
+    "cookie-parser": "^1.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0"
   }
 }
