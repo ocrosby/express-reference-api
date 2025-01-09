@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "true",
-    "start": "node app.js"
+    "start": "node app.js",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -28,5 +29,10 @@
     "express": "^4.21.2",
     "http-errors": "^2.0.0",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "globals": "^15.14.0"
   }
 }
