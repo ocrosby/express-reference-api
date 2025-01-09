@@ -1,0 +1,24 @@
+{
+  "name": "express-reference-api",
+  "version": "1.0.0",
+  "description": "something",
+  "main": "index.js",
+  "scripts": {
+    "test": "true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ocrosby/express-reference-api.git"
+  },
+  "keywords": [
+    "express",
+    "reference",
+    "api"
+  ],
+  "author": "Omar Crosby <omar.crosby@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ocrosby/express-reference-api/issues"
+  },
+  "homepage": "https://github.com/ocrosby/express-reference-api#readme"
+}
