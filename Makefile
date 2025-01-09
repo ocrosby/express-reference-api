@@ -21,4 +21,10 @@ push:
 # Clean up Docker images
 .PHONY: clean
 clean:
-	docker rmi $(IMAGE_NAME):$(TAG)
+	-docker rmi $(IMAGE_NAME):$(TAG)
+	docker system prune -f
+
+# Geneate Swagger documentation
+.PHONY: swagger
+swagger:
+	node swagger.js

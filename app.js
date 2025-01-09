@@ -4,6 +4,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const createError = require('http-errors');
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('./swagger_output.json');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -11,6 +13,14 @@ const productsRouter = require('./routes/products');
 const kubernetesRouter = require('./routes/kubernetes');
 
 const app = express();
+
+// Swagger setup
+const swaggerOptions = {
+    swaggerDefinition: require('./swagger.json'),
+    apis: ['./routes/*.js'], // Path to the API docs
+};
+const swaggerDocs = swaggerJsdoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

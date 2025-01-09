@@ -1,5 +1,5 @@
 # Use the official Node.js image as the base image
-FROM node:14
+FROM node:22-alpine
 
 # Set the working directory
 WORKDIR /usr/src/app
@@ -12,6 +12,9 @@ RUN npm install
 
 # Copy the rest of the application code
 COPY . .
+
+# Generate Swagger documentation
+RUN npm run generate-swagger
 
 # Expose the port the app runs on
 EXPOSE 3000

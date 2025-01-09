@@ -6,7 +6,8 @@
   "scripts": {
     "test": "true",
     "start": "node app.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "generate-swagger": "node swagger.js"
   },
   "repository": {
     "type": "git",
@@ -28,7 +29,10 @@
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "http-errors": "^2.0.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "swagger-autogen": "^2.23.7",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
