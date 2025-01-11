@@ -1,11 +1,11 @@
 {
   "name": "express-reference-api",
   "version": "1.0.0",
-  "description": "something",
-  "main": "index.js",
+  "description": "A reference API built with Express.js",
+  "main": "app.js",
   "scripts": {
     "test": "true",
-    "start": "node app.js",
+    "start": "npm run generate-swagger && node app.js",
     "lint": "eslint .",
     "generate-swagger": "node swagger.js"
   },
@@ -26,6 +26,7 @@
   "homepage": "https://github.com/ocrosby/express-reference-api#readme",
   "dependencies": {
     "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "http-errors": "^2.0.0",
