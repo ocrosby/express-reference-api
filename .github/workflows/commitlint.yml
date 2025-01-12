@@ -1,0 +1,31 @@
+name: Commitlint
+
+on: [push, pull_request]
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.5.1'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Determine commit range
+        id: commit_range
+        run: |
+          if [ $(git rev-list --count HEAD) -eq 1 ]; then
+            echo "range=HEAD" >> $GITHUB_ENV
+          else
+            echo "range=HEAD~1..HEAD" >> $GITHUB_ENV
+          fi
+
+      - name: Run commitlint
+        run: npx commitlint --from=${{ env.range }}

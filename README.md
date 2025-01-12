@@ -1,6 +1,7 @@
 # Express.js Reference API
 
 [![Lint](https://github.com/ocrosby/express-reference-api/actions/workflows/lint.yml/badge.svg)](https://github.com/ocrosby/express-reference-api/actions/workflows/lint.yml)
+[![Commitlint](https://github.com/ocrosby/express-reference-api/actions/workflows/commitlint.yml/badge.svg)](https://github.com/ocrosby/express-reference-api/actions/workflows/commitlint.yml)
 
 This repo contains an Express demo application.
 
