@@ -2,6 +2,7 @@
 
 [![Lint](https://github.com/ocrosby/express-reference-api/actions/workflows/lint.yml/badge.svg)](https://github.com/ocrosby/express-reference-api/actions/workflows/lint.yml)
 [![Commitlint](https://github.com/ocrosby/express-reference-api/actions/workflows/commitlint.yml/badge.svg)](https://github.com/ocrosby/express-reference-api/actions/workflows/commitlint.yml)
+[![JSONLint](https://github.com/ocrosby/express-reference-api/actions/workflows/jsonlint.yml/badge.svg)](https://github.com/ocrosby/express-reference-api/actions/workflows/jsonlint.yml)
 
 This repo contains an Express demo application.
 
