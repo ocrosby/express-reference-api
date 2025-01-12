@@ -44,6 +44,19 @@ When you start the service the [Swagger documentation](http://localhost:3000/api
 
 Contributions are welcome! Please open an issue or submit a pull request.
 
+## Commit Message Convention
+
+Must be one of the following:
+
+- build: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+- ci: Changes to our CI configuration files and scripts (examples: CircleCi, SauceLabs)
+- docs: Documentation only changes
+- feat: A new feature
+- fix: A bug fix
+- perf: A code change that improves performance
+- refactor: A code change that neither fixes a bug nor adds a feature
+- test: Adding missing tests or correcting existing tests
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
