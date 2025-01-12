@@ -4,7 +4,7 @@
   "description": "A reference API built with Express.js",
   "main": "app.js",
   "scripts": {
-    "test": "true",
+    "test": "jest --passWithNoTests",
     "start": "npm run generate-swagger && node app.js",
     "lint": "eslint .",
     "generate-swagger": "node swagger.js",
