@@ -7,7 +7,8 @@
     "test": "true",
     "start": "npm run generate-swagger && node app.js",
     "lint": "eslint .",
-    "generate-swagger": "node swagger.js"
+    "generate-swagger": "node swagger.js",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
