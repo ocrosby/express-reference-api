@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "generate-swagger": "node swagger.js",
     "prepare": "husky",
-    "jsonlint": "find . -name \"*.json\" -exec jsonlint {} \\;"
+    "jsonlint": "find . -maxdepth 1 -name \"*.json\" -exec jsonlint -q {} \\;"
   },
   "repository": {
     "type": "git",
