@@ -30,7 +30,9 @@
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
+    "glob": "^11.0.1",
     "http-errors": "^2.0.0",
+    "inflight": "^1.0.6",
     "morgan": "^1.10.0",
     "swagger-autogen": "^2.23.7",
     "swagger-jsdoc": "^6.2.8",
@@ -42,6 +44,7 @@
     "@commitlint/config-conventional": "^19.6.0",
     "@eslint/js": "^9.17.0",
     "eslint": "^9.17.0",
-    "globals": "^15.14.0"
+    "globals": "^15.14.0",
+    "husky": "^9.1.7"
   }
 }
