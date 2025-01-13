@@ -22,6 +22,12 @@ To install the dependencies, run:
 npm install
 ```
 
+If you don't have docker compose you can install it on MacOS using
+
+```sh
+brew install docker-compose
+```
+
 ## Usage
 
 To start the server, run:
@@ -39,6 +45,23 @@ The application will be available at [http://localhost:3000](http://localhost:30
 - `npm test`: Run tests (if any).
 
 When you start the service the [Swagger documentation](http://localhost:3000/api-docs) can be accessed at http://localhost:3000/api-docs.
+
+## Docker Stuff
+
+Start the database and cache containers:
+
+```sh
+docker-compose -f docker-compose.db.yml up
+```
+
+Star the API along with the database and cache containers:
+
+```sh
+docker-compose -f docker-compose.yml up
+```
+
+Note: If you want to start in detached mode, add the `-d` flag.
+
 
 ## Contributing
 

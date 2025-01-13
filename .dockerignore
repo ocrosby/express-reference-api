@@ -7,6 +7,10 @@ Dockerfile
 .env
 .vscode
 .idea
+.husky
+.github
 *.log
 README.md
 swagger-output.json
+coverage
+tests

@@ -5,6 +5,7 @@ const router = express.Router();
  * @swagger
  * /healthz:
  *   get:
+ *     tags: [Kubernetes]
  *     summary: Health check endpoint
  *     responses:
  *       200:
@@ -24,6 +25,7 @@ router.get('/healthz', (req, res) => {
  * @swagger
  * /readiness:
  *   get:
+ *     tags: [Kubernetes]
  *     summary: Readiness check endpoint
  *     responses:
  *       200:
@@ -43,6 +45,7 @@ router.get('/readiness', (req, res) => {
  * @swagger
  * /startup:
  *   get:
+ *     tags: [Kubernetes]
  *     summary: Startup check endpoint
  *     responses:
  *       200:

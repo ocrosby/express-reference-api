@@ -5,6 +5,7 @@ const router = express.Router();
  * @swagger
  * /:
  *  get:
+ *    tags: [Items]
  *    summary: Returns all items
  *    responses:
  *      200:

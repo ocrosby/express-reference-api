@@ -28,3 +28,11 @@ swagger:
 # Run Docker image
 run: build
 	docker run -p 3000:3000 $(IMAGE_NAME):$(TAG)
+
+# Start database and cache containers
+db:
+	docker-compose -f docker-compose.db.yml up
+
+# Start API, database, and cache containers
+api:
+	docker-compose -f docvker-compose.api.yml up

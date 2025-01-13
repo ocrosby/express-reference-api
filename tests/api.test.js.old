@@ -1,0 +1,64 @@
+jest.setTimeout(30000);
+
+const { GenericContainer } = require('testcontainers');
+const request = require('supertest');
+const mongoose = require('mongoose');
+const redis = require('redis');
+
+describe('Kubernetes Routes', () => {
+    let mongoContainer;
+    let redisContainer;
+    let apiContainer;
+    let redisClient;
+    let apiUrl;
+
+    beforeAll(async () => {
+        mongoContainer = await new GenericContainer('mongo')
+            .withExposedPorts(27017)
+            .start();
+
+        redisContainer = await new GenericContainer('redis')
+            .withExposedPorts(6379)
+            .start();
+
+        apiContainer = await new GenericContainer('my-express-api')
+            .withBuildContext(__dirname + '/../') // Adjust the path to your Dockerfile
+            .withExposedPorts(3000)
+            .start();
+
+        const mongoUri = `mongodb://${mongoContainer.getHost()}:${mongoContainer.getMappedPort(27017)}`;
+        await mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+        const redisHost = redisContainer.getHost();
+        const redisPort = redisContainer.getMappedPort(6379);
+        redisClient = redis.createClient({ host: redisHost, port: redisPort });
+
+        apiUrl = `http://${apiContainer.getHost()}:${apiContainer.getMappedPort(3000)}`;
+    });
+
+    afterAll(async () => {
+        await mongoose.disconnect();
+        await mongoContainer.stop();
+        await redisContainer.stop();
+        await apiContainer.stop();
+        redisClient.quit();
+    });
+
+    it('should return OK for /healthz', async () => {
+        const response = await request(apiUrl).get('/kubernetes/healthz');
+        expect(response.status).toBe(200);
+        expect(response.text).toBe('OK');
+    });
+
+    it('should return OK for /readiness', async () => {
+        const response = await request(apiUrl).get('/kubernetes/readiness');
+        expect(response.status).toBe(200);
+        expect(response.text).toBe('OK');
+    });
+
+    it('should return OK for /startup', async () => {
+        const response = await request(apiUrl).get('/kubernetes/startup');
+        expect(response.status).toBe(200);
+        expect(response.text).toBe('OK');
+    });
+});
