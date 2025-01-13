@@ -1,4 +1,5 @@
 const express = require('express');
+const connectDB = require('./src/config/database');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -6,14 +7,18 @@ const createError = require('http-errors');
 const swaggerUi = require('swagger-ui-express');
 const swaggerFile = require('./swagger-output.json');
 
-const indexRouter = require('./routes/index');
-const itemsRouter = require('./routes/items');
-const kubernetesRouter = require('./routes/kubernetes');
-
-const app = express();
+const indexRouter = require('./src/routes/index');
+const itemsRouter = require('./src/routes/items');
+const kubernetesRouter = require('./src/routes/kubernetes');
 
 // Load environment variables
 require('dotenv').config();
+
+const app = express();
+app.use(express.json());
+
+// Connect to MongoDB
+connectDB();
 
 // Swagger setup
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
@@ -29,13 +34,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/items', itemsRouter);
+app.use('/api/items', itemsRouter);
 app.use('/', kubernetesRouter);
 
 // Use configuration settings
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+    console.log(`Server is running on port ${port}\nhttp://${process.env.HOST}:${port}/api-docs`);
 });
 
 // catch 404 and forward to error handler
